@@ -1,7 +1,7 @@
 module.exports = {
     devServer: {
         disableHostCheck: true,
-        sockHost: 'frontend.demo.test',
+        sockHost: 'localhost',
         watchOptions: {
             ignored: /node_modules/,
             aggregateTimeout: 300,

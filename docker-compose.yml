@@ -26,6 +26,8 @@ services:
     working_dir: /var/www/backend
     volumes:
       - ./src/backend:/var/www/backend
+    ports:
+      - "9000:9000"
     depends_on:
       mysql:
         condition: service_healthy
@@ -36,6 +38,8 @@ services:
     working_dir: /var/www/frontend
     volumes:
       - ./src/frontend:/var/www/frontend
+    ports:
+      - "8080:8080"
     depends_on:
       - backend
 

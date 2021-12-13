@@ -1,5 +1,5 @@
 FROM php:8.0-fpm-alpine
-
+# attention langue
 # Install extensions
 RUN docker-php-ext-install pdo_mysql bcmath opcache
 
@@ -18,3 +18,5 @@ RUN adduser --disabled-password --gecos "" --uid $HOST_UID demo
 
 # Switch to that user
 USER demo
+
+EXPOSE 9000
