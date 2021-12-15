@@ -5,11 +5,22 @@
         $line = preg_replace_callback(
             "/(<a .*?>)(.*)(<\/a>)/",
             function ($matches) {
-                return $matches[1].strtoupper($matches[2]).$matches[3];
+                $matches[0] = preg_replace_callback(
+                    "/((<.*>)*)((.*)*)((<.*>)*)/",
+                    function ($matches) {
+                        foreach($matches[1] as $match)
+                            $match = strtoupper($match);
+                        return $matches[1];
+                    },
+                    $matches[0]
+                    
+                )
             },
             $line
         );
         echo $line;
     }
     fclose($fp);
+
+
 ?>
